@@ -5,7 +5,7 @@ namespace App\Rules;
 use App\Models\User;
 use Illuminate\Contracts\Validation\Rule;
 
-class StudentUniqueRule implements Rule
+class UserEmailUniqueRule implements Rule
 {
     public function __construct(private string $domain)
     {
