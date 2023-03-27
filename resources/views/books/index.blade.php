@@ -5,48 +5,50 @@
         </h2>
     </x-slot>
 
+
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    <table class="w-full">
-                        <thead>
-                        <tr>
-                            <th class="text-left">{{ __('Title') }}</th>
-                            <th class="text-left">{{ __('Author') }}</th>
-                            <th class="text-left">{{ __('Genre') }}</th>
-                            <th class="text-left">{{ __('Year') }}</th>
-                            <th class="text-left">{{ __('Teacher') }}</th>
-                            <th class="text-left">{{ __('Status') }}</th>
-                            <th></th>
-                        </tr>
-                        </thead>
-                        <tbod>
-                            @foreach($books as $book)
-                                <tr>
-                                    <td>{{ $book->title }}</td>
-                                    <td>{{ $book->author }}</td>
-                                    <td>{{ $book->genre }}</td>
-                                    <td>{{ $book->year }}</td>
-                                    <td>{{ $book->teacher }}</td>
-                                    <td>{{ $book->status }}</td>
-                                    <td class="text-right">
-                                        <form action="{{ route('books.delete') }}" method="post">
-                                            @csrf
-                                            @method('DELETE')
-                                            <input type="hidden" name="book" value="{{ $book->id }}">
-                                            <x-danger-button class="ml-3">
-                                                {{ __('delete') }}
-                                            </x-danger-button>
-                                        </form>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbod>
-                    </table>
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <x-alerts />
+            <div class="space-y-6">
+                <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                    <div class="p-6 text-gray-900">
+                        <table class="w-full">
+                            <thead>
+                            <tr>
+                                <th class="text-left">{{ __('Title') }}</th>
+                                <th class="text-left">{{ __('Author') }}</th>
+                                <th class="text-left">{{ __('Genre') }}</th>
+                                <th class="text-left">{{ __('Year') }}</th>
+                                <th class="text-left">{{ __('Teacher') }}</th>
+                                <th class="text-left">{{ __('Status') }}</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbod>
+                                @foreach($books as $book)
+                                    <tr>
+                                        <td>{{ $book->title }}</td>
+                                        <td>{{ $book->author }}</td>
+                                        <td>{{ $book->genre }}</td>
+                                        <td>{{ $book->year }}</td>
+                                        <td>{{ $book->teacher }}</td>
+                                        <td>{{ $book->status }}</td>
+                                        <td class="text-right">
+                                            <form action="{{ route('books.delete', ['book' => $book]) }}" method="post">
+                                                @csrf
+                                                @method('DELETE')
+                                                <x-danger-button class="ml-3">
+                                                    {{ __('delete') }}
+                                                </x-danger-button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbod>
+                        </table>
+                    </div>
                 </div>
-            </div>
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <form method="post" action="{{ route('books.store') }}" class="p-6 space-y-6">
                     @csrf
 
@@ -90,6 +92,7 @@
                         @endif
                     </div>
                 </form>
+            </div>
             </div>
         </div>
     </div>

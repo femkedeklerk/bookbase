@@ -28,16 +28,17 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/books', [\App\Http\Controllers\BooksController::class, 'index'])->name('books.index');
     Route::post('/books', [\App\Http\Controllers\BooksController::class, 'store'])->name('books.store');
-    Route::delete('/books', [\App\Http\Controllers\BooksController::class, 'destroy'])->name('books.delete');
+    Route::delete('/books/{book}', [\App\Http\Controllers\BooksController::class, 'destroy'])->name('books.delete');
 });
 
 require __DIR__.'/auth.php';
 
-Route::prefix('/admin')->name('admin.')->group(function () {
+Route::prefix('/admin')->group(function () {
     require __DIR__.'/auth.php';
     Route::middleware(['auth', 'verified', 'isadmin'])->group(function () {
         Route::get('/', function () {
             return view('welcome');
         });
+        Route::get('/students', [\App\Http\Controllers\AdminController::class, 'students'])->name('admin.students');
     });
 });

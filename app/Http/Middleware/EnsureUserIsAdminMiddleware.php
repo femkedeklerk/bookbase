@@ -12,7 +12,7 @@ class EnsureUserIsAdminMiddleware
 {
     public function handle(Request $request, Closure $next)
     {
-        if (! $request->user() || $request->user()->isAdmin()) {
+        if (! $request->user() || !$request->user()->isAdmin()) {
             return $request->expectsJson()
                 ? abort(403, 'No access')
                 : Redirect::guest(URL::route('admin.login'));

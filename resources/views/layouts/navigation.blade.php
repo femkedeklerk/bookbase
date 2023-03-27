@@ -1,3 +1,17 @@
+@php
+    if (auth()->user()->isAdmin()) :
+    $items = [
+        [ 'route' => 'dashboard', 'label' => __('Dashboard') ],
+        [ 'route' => 'books.index', 'label' => __('Books') ],
+        [ 'route' => 'admin.students', 'label' => __('Students') ],
+    ];
+    else :
+    $items = [
+        [ 'route' => 'dashboard', 'label' => __('Dashboard') ],
+        [ 'route' => 'books.index', 'label' => __('Books') ],
+    ];
+    endif
+@endphp
 <nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -12,12 +26,11 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-nav-link>
-                    <x-nav-link :href="route('books.index')" :active="request()->routeIs('books.index')">
-                        {{ __('Books') }}
-                    </x-nav-link>
+                    @foreach($items as $item)
+                        <x-nav-link :href="route($item['route'])" :active="request()->routeIs($item['route'])">
+                            {{ $item['label'] }}
+                        </x-nav-link>
+                    @endforeach
                 </div>
             </div>
 
