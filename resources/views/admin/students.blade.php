@@ -24,12 +24,11 @@
                             <tbod>
                                 @foreach($students as $student)
                                     <tr>
-                                        <td>{{ $student->title }}</td>
-                                        <td>{{ $student->author }}</td>
-                                        <td>{{ $student->genre }}</td>
-                                        <td>{{ $student->year }}</td>
-                                        <td>{{ $student->teacher }}</td>
-                                        <td>{{ $student->status }}</td>
+                                        <td>{{ $student->name }}</td>
+                                        <td>{{ $student->total }}</td>
+                                        <td>{{ $student->pending }}</td>
+                                        <td>{{ $student->accepted }}</td>
+                                        <td>{{ $student->declined }}</td>
                                     </tr>
                                 @endforeach
                             </tbod>
