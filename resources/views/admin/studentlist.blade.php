@@ -16,29 +16,27 @@
                                 <th class="text-left">{{ __('Name') }}</th>
                                 <th class="text-left">{{ __('Total') }}</th>
                                 <th class="text-left">{{ __('Pending') }}</th>
-                                <th class="text-left">{{ __('Accepted') }}</th>
+                                <th class="text-left">{{ __('Approved') }}</th>
                                 <th class="text-left">{{ __('Declined') }}</th>
                                 <th></th>
                             </tr>
                             </thead>
-                            <tbod>
+                            <tbody>
                                 @foreach($students as $student)
                                     <tr>
                                         <td>{{ $student->name }}</td>
-                                        <td>{{ $student->total }}</td>
-                                        <td>{{ $student->pending }}</td>
-                                        <td>{{ $student->accepted }}</td>
-                                        <td>{{ $student->declined }}</td>
+                                        <td>{{ $student->books_total }}</td>
+                                        <td>{{ $student->books_pending }}</td>
+                                        <td>{{ $student->books_approved }}</td>
+                                        <td>{{ $student->books_declined }}</td>
+                                        <td><a href="{{ route('admin.studentdetail', [ 'student' => $student]) }}">edit</a></td>
                                     </tr>
                                 @endforeach
-                            </tbod>
+                            </tbody>
                         </table>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-    hello world
-    <pre>@json($students, JSON_PRETTY_PRINT)</pre>
 </x-app-layout>

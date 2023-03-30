@@ -15,7 +15,7 @@ return new class extends Migration {
             $table->string('genre');
             $table->string('year');
             $table->string('teacher');
-            $table->enum('status', ['pending', 'rejected', 'accepted'])->default('pending');
+            $table->enum('status', ['pending', 'rejected', 'approved'])->default('pending');
             $table->timestamps();
         });
     }

@@ -40,5 +40,7 @@ Route::prefix('/admin')->group(function () {
             return view('welcome');
         });
         Route::get('/students', [\App\Http\Controllers\AdminController::class, 'students'])->name('admin.students');
+        Route::get('/students/{student}', [\App\Http\Controllers\AdminController::class, 'student'])->name('admin.studentdetail');
+        Route::patch('/admin/{book}', [\App\Http\Controllers\AdminController::class, 'updateBook'])->name('admin.updateBook');
     });
 });
