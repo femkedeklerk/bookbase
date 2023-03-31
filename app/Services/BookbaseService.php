@@ -24,6 +24,12 @@ class BookbaseService
             ->where('email', 'like', '%' . config('bookbase.studentdomain'));
     }
 
+    public static function getTeachers()
+    {
+        return User::query()
+            ->where('email', 'like', '%' . config('bookbase.admindomain'));
+    }
+
     public static function getStudentsWithBookStats()
     {
         return self::getStudents()

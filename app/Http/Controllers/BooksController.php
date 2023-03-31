@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Book\CreateRequest;
 use App\Models\Book;
+use App\Services\BookbaseService;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -19,7 +20,8 @@ class BooksController extends Controller
     public function index()
     {
         return view('books.index', [
-            'books' => Auth::user()->books
+            'books' => Auth::user()->books,
+            'teachers' => BookbaseService::getTeachers()->orderBy('name')->get()
         ]);
     }
 

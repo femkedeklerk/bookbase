@@ -74,7 +74,12 @@
                     </div>
                     <div>
                         <x-input-label for="teacher" :value="__('Teacher')" />
-                        <x-text-input id="teacher" name="teacher" type="text" class="mt-1 block w-full" :value="old('teacher')" required autofocus />
+                        <x-select id="teacher" name="teacher" class="mt-1 block w-full">
+                            <option></option>
+                            @foreach($teachers as $teacher)
+                                <option value="{{ $teacher->email }}">{{ $teacher->name }}</option>
+                            @endforeach
+                        </x-select>
                         <x-input-error class="mt-2" :messages="$errors->get('teacher')" />
                     </div>
 
