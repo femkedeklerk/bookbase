@@ -14,10 +14,10 @@
                             <thead>
                             <tr>
                                 <th class="text-left">{{ __('Name') }}</th>
-                                <th class="text-left">{{ __('Total') }}</th>
-                                <th class="text-left">{{ __('Pending') }}</th>
-                                <th class="text-left">{{ __('Approved') }}</th>
-                                <th class="text-left">{{ __('Declined') }}</th>
+                                <th class="text-right">{{ __('Total') }}</th>
+                                <th class="text-right">{{ __('Pending') }}</th>
+                                <th class="text-right">{{ __('Approved') }}</th>
+                                <th class="text-right">{{ __('Rejected') }}</th>
                                 <th></th>
                             </tr>
                             </thead>
@@ -25,11 +25,11 @@
                                 @foreach($students as $student)
                                     <tr>
                                         <td>{{ $student->name }}</td>
-                                        <td>{{ $student->books_total }}</td>
-                                        <td>{{ $student->books_pending }}</td>
-                                        <td>{{ $student->books_approved }}</td>
-                                        <td>{{ $student->books_declined }}</td>
-                                        <td><a href="{{ route('admin.studentdetail', [ 'student' => $student]) }}">edit</a></td>
+                                        <td class="text-right">{{ $student->books_total }}</td>
+                                        <td class="text-right">{{ $student->books_pending }}</td>
+                                        <td class="text-right">{{ $student->books_accepted }}</td>
+                                        <td class="text-right">{{ $student->books_rejected }}</td>
+                                        <td class="text-right"><a href="{{ route('admin.studentdetail', [ 'student' => $student]) }}">edit</a></td>
                                     </tr>
                                 @endforeach
                             </tbody>

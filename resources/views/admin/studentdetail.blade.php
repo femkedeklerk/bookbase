@@ -38,10 +38,10 @@
                                                     @csrf
                                                     @method('PATCH')
                                                     <x-danger-button class="ml-3" name="status" value="rejected">
-                                                        {{ __('decline') }}
+                                                        {{ __('reject') }}
                                                     </x-danger-button>
                                                     <x-accept-button class="ml-3" name="status" value="accepted">
-                                                        {{ __('approve') }}
+                                                        {{ __('accept') }}
                                                     </x-accept-button>
                                                 </form>
                                             </div>

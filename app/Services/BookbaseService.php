@@ -31,10 +31,10 @@ class BookbaseService
                 'books as books_total',
                 'books as books_pending' => function (Builder $query) {
                     $query->where('status', 'pending');},
-                'books as books_approved' => function (Builder $query) {
-                    $query->where('status', 'approved');},
-                'books as books_declined' => function (Builder $query) {
-                    $query->where('status', 'declined');},
+                'books as books_accepted' => function (Builder $query) {
+                    $query->where('status', 'accepted');},
+                'books as books_rejected' => function (Builder $query) {
+                    $query->where('status', 'rejected');},
             ]);
     }
 }
