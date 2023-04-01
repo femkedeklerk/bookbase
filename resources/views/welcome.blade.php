@@ -12,15 +12,14 @@
             @endauth
         </div>
     @endif
-    <div>
-        <div>
+    <div class="text-gray-900 p-6">
+        <div class="text-2xl">
             How to create an account? <br>
-            <div>
-                -Make sure that you enter your FULL name (including last name) <br>
-                -Make sure that you use your school email (fullname@mencialeerling.nl) <br>
-                -Use your Magister Password <br>
-                -Click 'Register' <br>
-            </div>
         </div>
+        <ul>
+            <li>Make sure that you enter your FULL name (including last name) </li>
+            <li>Make sure that you use your school email (fullname@mencialeerling.nl) </li>
+            <li>Click 'Register' </li>
+        </ul>
     </div>
 </x-guest-layout>
