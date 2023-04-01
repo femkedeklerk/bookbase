@@ -2,7 +2,7 @@
     if (auth()->user()->isAdmin()) :
     $items = [
         [ 'route' => 'dashboard', 'label' => __('Dashboard') ],
-        [ 'route' => 'books.index', 'label' => __('Books') ],
+//        [ 'route' => 'books.index', 'label' => __('Books') ],
         [ 'route' => 'admin.students', 'label' => __('Students') ],
     ];
     else :

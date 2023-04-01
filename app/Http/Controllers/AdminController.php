@@ -10,10 +10,16 @@ use Illuminate\Support\Facades\Redirect;
 
 class AdminController extends Controller
 {
-    public function students()
+    public function students(Request $request)
     {
+        $studentsQuery = BookbaseService::getStudentsWithBookStats();
+        $search = trim($request->get('q'));
+        if (!empty($search)) {
+            $studentsQuery->where('name', 'like', '%' . $request->get('q') . '%');
+        }
         return view('admin.studentlist', [
-            'students' => BookbaseService::getStudentsWithBookStats()->get()
+            'students' => $studentsQuery->get(),
+            'q' => $search
         ]);
     }
 
@@ -30,4 +36,5 @@ class AdminController extends Controller
         $book->save();
         return Redirect::back();
     }
+
 }

@@ -10,7 +10,8 @@
             <div class="space-y-6">
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6 text-gray-900">
-                        <table class="w-full">
+                        <x-searchbox :value="$q" class="mb-5" />
+                        <table class="w-full mt-4">
                             <thead>
                             <tr>
                                 <th class="text-left">{{ __('Name') }}</th>
@@ -18,7 +19,6 @@
                                 <th class="text-right">{{ __('Pending') }}</th>
                                 <th class="text-right">{{ __('Approved') }}</th>
                                 <th class="text-right">{{ __('Rejected') }}</th>
-                                <th></th>
                             </tr>
                             </thead>
                             <tbody>

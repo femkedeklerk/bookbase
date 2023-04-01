@@ -34,7 +34,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
 require __DIR__.'/auth.php';
 
 Route::prefix('/admin')->group(function () {
-    require __DIR__.'/auth.php';
     Route::middleware(['auth', 'verified', 'isadmin'])->group(function () {
         Route::get('/', function () {
             return view('welcome');
@@ -44,3 +43,4 @@ Route::prefix('/admin')->group(function () {
         Route::patch('/admin/{book}', [\App\Http\Controllers\AdminController::class, 'updateBook'])->name('admin.updateBook');
     });
 });
+
