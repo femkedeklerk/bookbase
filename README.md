@@ -1,5 +1,5 @@
 ```Install guide```
-* ```git clone git@github.com:femkedeklerk/bookbase.git```
+* ```git clone https://github.com/femkedeklerk/bookbase.git```
 * ```cd bookbase```
 * ```composer install```
 * ```cp .env.example .env```
